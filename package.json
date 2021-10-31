@@ -1,33 +1,33 @@
 {
-  "name": "nest-neo4j",
-  "version": "0.1.4",
-  "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.js",
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adam-cowley/nest-neo4j.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/adam-cowley/nest-neo4j/issues"
-  },
-  "homepage": "https://github.com/adam-cowley/nest-neo4j#readme",
-  "dependencies": {
-    "@nestjs/common": "^7.4.2",
-    "@nestjs/config": "^0.5.0",
-    "@nestjs/core": "^7.4.2",
-    "neo4j-driver": "^4.1.0",
-    "reflect-metadata": "^0.1.13"
-  },
-  "devDependencies": {
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.5"
-  }
+	"name": "nest-neo4j",
+	"version": "0.1.5",
+	"description": "",
+	"main": "dist/index.js",
+	"types": "dist/index.d.js",
+	"scripts": {
+		"build": "tsc",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alyreza/nest-neo4j.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/alyreza/nest-neo4j/issues"
+	},
+	"homepage": "https://github.com/alyreza/nest-neo4j#readme",
+	"dependencies": {
+		"@nestjs/common": "^8.1.1",
+		"@nestjs/config": "^1.0.2",
+		"@nestjs/core": "^8.1.1",
+		"neo4j-driver": "^4.3.4",
+		"reflect-metadata": "^0.1.13"
+	},
+	"devDependencies": {
+		"ts-node": "^10.4.0",
+		"typescript": "^4.4.4"
+	}
 }
