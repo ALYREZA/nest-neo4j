@@ -30,11 +30,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Neo4jService = void 0;
 const common_1 = require("@nestjs/common");
 const neo4j_driver_1 = __importStar(require("neo4j-driver"));
 const neo4j_constants_1 = require("./neo4j.constants");
+const transaction_1 = __importDefault(require("neo4j-driver-core/lib/transaction"));
 let Neo4jService = class Neo4jService {
     constructor(config, driver) {
         this.driver = driver;
@@ -66,14 +70,14 @@ let Neo4jService = class Neo4jService {
         });
     }
     read(cypher, params, databaseOrTransaction) {
-        if (databaseOrTransaction instanceof neo4j_driver_1.Transaction) {
+        if (databaseOrTransaction instanceof transaction_1.default) {
             return databaseOrTransaction.run(cypher, params);
         }
         const session = this.getReadSession(databaseOrTransaction);
         return session.run(cypher, params);
     }
     write(cypher, params, databaseOrTransaction) {
-        if (databaseOrTransaction instanceof neo4j_driver_1.Transaction) {
+        if (databaseOrTransaction instanceof transaction_1.default) {
             return databaseOrTransaction.run(cypher, params);
         }
         const session = this.getWriteSession(databaseOrTransaction);
