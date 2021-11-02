@@ -15,11 +15,10 @@ const common_1 = require("@nestjs/common");
 const operators_1 = require("rxjs/operators");
 const neo4j_driver_1 = require("neo4j-driver");
 const neo4j_driver_core_1 = require("neo4j-driver-core");
-const neo4j_driver_2 = require("neo4j-driver");
 const toNative = (value, showLabelsOrType, showIdentity) => {
     if (value === null || value === undefined)
         return undefined;
-    else if (value instanceof neo4j_driver_2.Result || value.records) {
+    else if (value instanceof neo4j_driver_core_1.Result || value.records) {
         return value.records.map((row) => Object.fromEntries(row.keys.map((key) => [key, toNative(row.get(key))])));
     }
     else if (Array.isArray(value))

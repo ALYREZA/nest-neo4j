@@ -16,8 +16,7 @@ import neo4j, {
 	isInt,
 	isPoint,
 } from "neo4j-driver";
-import { isNode, isRelationship } from "neo4j-driver-core";
-import { Result } from "neo4j-driver";
+import { isNode, isRelationship, Result } from "neo4j-driver-core";
 
 const toNative = (
 	value: any,
