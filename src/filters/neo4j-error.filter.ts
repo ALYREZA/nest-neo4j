@@ -1,12 +1,12 @@
 import { ExceptionFilter, Catch, ArgumentsHost } from "@nestjs/common";
-import { Reply } from "fastify";
+import { FastifyReply } from "fastify";
 import { Neo4jError } from "neo4j-driver";
 
 @Catch(Neo4jError)
 export class Neo4jErrorFilter implements ExceptionFilter {
 	catch(exception: Neo4jError, host: ArgumentsHost) {
 		const ctx = host.switchToHttp();
-		const response = ctx.getResponse<Reply>();
+		const response = ctx.getResponse<FastifyReply>();
 
 		let statusCode = 500;
 		let error = "Internal Server Error";
