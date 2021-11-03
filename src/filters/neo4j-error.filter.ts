@@ -1,6 +1,6 @@
 import { ExceptionFilter, Catch, ArgumentsHost } from "@nestjs/common";
 import { FastifyReply } from "fastify";
-import { Neo4jError } from "neo4j-driver";
+import { Neo4jError } from "neo4j-driver-core/lib/error";
 
 @Catch(Neo4jError)
 export class Neo4jErrorFilter implements ExceptionFilter {

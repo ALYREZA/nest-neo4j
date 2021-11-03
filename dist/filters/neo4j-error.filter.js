@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Neo4jErrorFilter = void 0;
 const common_1 = require("@nestjs/common");
-const neo4j_driver_1 = require("neo4j-driver");
+const error_1 = require("neo4j-driver-core/lib/error");
 let Neo4jErrorFilter = class Neo4jErrorFilter {
     catch(exception, host) {
         const ctx = host.switchToHttp();
@@ -35,6 +35,6 @@ let Neo4jErrorFilter = class Neo4jErrorFilter {
     }
 };
 Neo4jErrorFilter = __decorate([
-    (0, common_1.Catch)(neo4j_driver_1.Neo4jError)
+    (0, common_1.Catch)(error_1.Neo4jError)
 ], Neo4jErrorFilter);
 exports.Neo4jErrorFilter = Neo4jErrorFilter;
