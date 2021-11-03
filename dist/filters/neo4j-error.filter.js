@@ -13,6 +13,7 @@ let Neo4jErrorFilter = class Neo4jErrorFilter {
     catch(exception, host) {
         const ctx = host.switchToHttp();
         const response = ctx.getResponse();
+        const request = ctx.getResponse();
         let statusCode = 500;
         let error = "Internal Server Error";
         let message = [];
@@ -31,7 +32,13 @@ let Neo4jErrorFilter = class Neo4jErrorFilter {
         response
             .code(statusCode)
             .header("Content-Type", "application/json; charset=utf-8")
-            .send({ statusCode, message, error });
+            .send({
+            statusCode,
+            message,
+            error,
+            timestamp: new Date().toISOString(),
+            path: request.url,
+        });
     }
 };
 Neo4jErrorFilter = __decorate([
